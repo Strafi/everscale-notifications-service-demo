@@ -17,7 +17,10 @@ app.use(express.urlencoded({
 app.use(cors());
 
 app.use(api);
-app.use(express.static('static'));
+
+const static = express.static('static');
+app.use(static);
+app.use('/test', static);
 
 app.get('/test/stream', sse.init);
 
