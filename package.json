@@ -1,0 +1,21 @@
+{
+  "name": "notifications-service-demo",
+  "version": "1.0.0",
+  "description": "Free TON Stats",
+  "main": "server.js",
+  "scripts": {
+    "server": "NODE_ENV=staging PORT=3000 nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn client:stats\" \"yarn client:browser\" \"yarn server\"",
+    "docker:run": "docker run -t -i --env NODE_ENV=production --env PORT=3000 -p 3000:3000 i4insdemo"
+  },
+  "repository": "https://github.com/Strafi/notifications-service-demo",
+  "author": "Anton Solodkov <anton.solodkof@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^6.0.0",
+    "cors": "^2.8.5",
+    "excel4node": "^1.7.2",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}

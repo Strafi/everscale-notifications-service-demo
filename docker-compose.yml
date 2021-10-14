@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  i4insdemo:
+    build:
+      context: .
+    container_name: i4insdemo
+    image: asolodkov/i4insdemo
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    volumes:
+      - ./logs:/logs
+    networks:
+      - i4insdemo-network
+    ports:
+      - 3000:3000
+
+networks:
+  i4insdemo-network:
+    driver: bridge
