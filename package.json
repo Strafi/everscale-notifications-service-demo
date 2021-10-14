@@ -4,9 +4,9 @@
   "description": "Free TON Stats",
   "main": "server.js",
   "scripts": {
-    "server": "NODE_ENV=staging PORT=3000 nodemon server.js",
+    "server": "NODE_ENV=staging PORT=3002 nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn client:stats\" \"yarn client:browser\" \"yarn server\"",
-    "docker:run": "docker run -t -i --env NODE_ENV=production --env PORT=3000 -p 3000:3000 i4insdemo"
+    "docker:run": "docker run -t -i --env NODE_ENV=production --env PORT=3002 -p 3002:3002 i4insdemo"
   },
   "repository": "https://github.com/Strafi/notifications-service-demo",
   "author": "Anton Solodkov <anton.solodkof@gmail.com>",

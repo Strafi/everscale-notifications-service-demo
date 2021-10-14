@@ -9,13 +9,13 @@ services:
     restart: unless-stopped
     environment:
       - NODE_ENV=production
-      - PORT=3000
+      - PORT=3002
     volumes:
       - ./logs:/logs
     networks:
       - i4insdemo-network
     ports:
-      - 3000:3000
+      - 3002:3002
 
 networks:
   i4insdemo-network:

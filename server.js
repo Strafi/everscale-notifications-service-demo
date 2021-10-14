@@ -21,12 +21,6 @@ app.use(express.static('static'));
 
 app.get('/test/stream', sse.init);
 
-function sent() {
-	sse.send('test', 'notification-received');
-}
-
-setInterval(sent, 1000);
-
 app.get('*', (req, res) => {
 	res.status(404).json({
 		msg: 'Not Found'
