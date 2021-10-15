@@ -2,18 +2,16 @@ const sse = require('../sse');
 
 const test = (req, res) => {
 	try {
-		console.log(req.body);
-
-		const returnContent = typeof req.body === 'string' ? req.body : 'some content';
+		const returnContent = typeof req.body.message === 'string' ? req.body.message : 'some content';
 
 		sse.send(returnContent, 'notification-received');
 
-		res.status(200);
+		res.status(200).end();
 	} catch(err) {
 		console.error(err);
 
 		res.status(500).json({
-			body: 'Internal error while parsing results table'
+			body: 'Internal error while parsing messages'
 		});
 	}
 };

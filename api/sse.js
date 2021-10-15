@@ -1,9 +1,3 @@
-'use strict';
-
-/**
- * Require the module dependencies
- */
-
 const EventEmitter = require('events').EventEmitter;
 
 /**
@@ -89,14 +83,22 @@ class SSE extends EventEmitter {
       } else if (this.initial.length > 0) {
         this.send(this.initial, this.options.initialEvent || false);
       }
-    }
+	}
+
+	const intervalId = setInterval(() => {
+		res.write('\n');
+		res.flushHeaders();
+	}, 30 * 1000);
 
     // Remove listeners and reduce the number of max listeners on client disconnect
     req.on('close', () => {
       this.removeListener('data', dataListener);
       this.removeListener('serialize', serializeListener);
       this.setMaxListeners(this.getMaxListeners() - 2);
+	  clearInterval(intervalId);
     });
+
+	res.write('\n');
   }
 
   /**
