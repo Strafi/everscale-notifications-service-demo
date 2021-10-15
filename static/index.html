@@ -31,6 +31,7 @@
 		<h1>Demo page for i4ins service</h1>
 		<h3>Please, follow the <a href="https://tonlabs.notion.site/Notification-DeBot-User-s-Manual-cbd9f3e1aab74c83850a91335894a2c8" target="__blank">Notification DeBot. User's Manual (dev network)</a> to setup DeBot</h3>
 		<h3>Then, send callback url <span>'https://ftns.freeton-stats.org/test/webhook'</span> to the i4ins provider via DeBot</h3>
+		<h3>Note: this url is already verified so you can skip the instruction received from DeBot</h3>
 		<h3>If you have not seen any errors inside a DeBot, your notifications will appear below:</h3>
 		<div id='notifications-container'>
 		</div>
@@ -42,14 +43,17 @@
 			const notificationsContainer = document.getElementById('notifications-container');
 			const [nonce, encodedMessage] = event.data.split(' ');
 
+			const normalizedNonce = nonce.startsWith('"') ? nonce.slice(1) : nonce;
+			const normalizedMessage = encodedMessage.endsWith('"') ? encodedMessage.slice(0, -1) : encodedMessage;
+
 			const tableInnerHTML = `
 				<tr>
 					<th>Nonce:</th>
-					<td>${nonce}</td>
+					<td>${normalizedNonce}</td>
 				</tr>
 				<tr>
 					<th>Encoded Message:</th>
-					<td>${encodedMessage}</td>
+					<td>${normalizedMessage}</td>
 				</tr>
 			`;
 			
