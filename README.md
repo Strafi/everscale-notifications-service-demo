@@ -1,4 +1,4 @@
-# Free TON Notifications Service Demo
+# Everscale Notifications Service Demo
 
 <h2>Demo page for i4ins service</h2>
 <h3>Please, follow the <a href="https://tonlabs.notion.site/Notification-DeBot-User-s-Manual-cbd9f3e1aab74c83850a91335894a2c8" target="__blank">Notification DeBot. User's Manual (dev network)</a> to setup DeBot</h3>
